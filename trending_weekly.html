@@ -1,0 +1,171 @@
+<h1>GitHub 本周爆款：3 个 AI 项目引爆开发者社区（总 Star 超 14 万）</h1>
+<blockquote>
+<p>数据来源: GitHub Trending Weekly | 更新时间: 2026-05-04</p>
+</blockquote>
+<h2>引言</h2>
+<p>本周 GitHub Trending 榜单被 AI 项目全面霸屏，其中 <strong>mattpocock/skills</strong> 以单周 <strong>+34,848 Stars</strong> 的惊人增速登顶，成为现象级项目。与此同时，多智能体交易框架和免费 Claude Code 方案也引发热议。</p>
+<p>本文将深度解析这 3 个爆款项目的核心价值、技术亮点与实战应用。</p>
+<hr />
+<h2>🏆 项目一：mattpocock/skills — AI 编程技能集</h2>
+<p><strong>⭐ 57.2k Stars | 📈 周增 34,848</strong></p>
+<h3>核心亮点</h3>
+<p>这是由资深工程师 Matt Pocock 打造的 <strong>Claude/Codex AI 编程技能集</strong>，旨在解决 AI 编码代理的三大常见失败模式：</p>
+<ol>
+<li><strong>代理没按预期执行</strong> → 提供 <code>/grill-me</code> 命令进行需求对齐</li>
+<li><strong>代理过于冗长</strong> → 通过共享语言文档精简沟通</li>
+<li><strong>代码无法运行</strong> → 小步迭代 + 快速反馈机制</li>
+</ol>
+<h3>技术架构</h3>
+<pre><code class="language-bash"># 一键安装
+npx skills@latest add mattpocock/skills
+
+# 设置技能
+/setup-matt-pocock-skills
+</code></pre>
+<h3>实战价值</h3>
+<ul>
+<li>✅ 与任何 LLM 模型兼容</li>
+<li>✅ 基于数十年工程经验</li>
+<li>✅ 模块化设计，易于定制</li>
+<li>✅ 支持 GitHub/Linear/本地文件 issue 追踪</li>
+</ul>
+<h3>适用场景</h3>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>技能命令</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>需求对齐</td>
+<td><code>/grill-me</code></td>
+<td>代理主动提问，确保理解一致</td>
+</tr>
+<tr>
+<td>代码审查</td>
+<td><code>/triage</code></td>
+<td>自动分类问题优先级</td>
+</tr>
+<tr>
+<td>文档生成</td>
+<td><code>/grill-with-docs</code></td>
+<td>生成 ADR 和技术文档</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>💰 项目二：TradingAgents — 多智能体金融交易框架</h2>
+<p><strong>⭐ 65.5k Stars | 📈 周增 11,252</strong></p>
+<h3>核心亮点</h3>
+<p>这是一个 <strong>多智能体 LLM 金融交易框架</strong>，通过多个 AI 代理协作完成：</p>
+<ul>
+<li>市场分析</li>
+<li>策略制定</li>
+<li>风险管控</li>
+<li>自动执行</li>
+</ul>
+<h3>技术架构</h3>
+<pre><code class="language-python"># 示例：启动交易代理
+from trading_agents import TradingSystem
+
+system = TradingSystem(
+    models=[&quot;gpt-4&quot;, &quot;claude-3&quot;],
+    strategies=[&quot;momentum&quot;, &quot;mean_reversion&quot;],
+    risk_management=&quot;dynamic&quot;
+)
+
+system.run()
+</code></pre>
+<h3>市场价值</h3>
+<ul>
+<li>📊 支持多市场数据接入</li>
+<li>🤖 多模型协作决策</li>
+<li>📈 实时风险管控</li>
+<li>💡 可解释 AI 交易逻辑</li>
+</ul>
+<hr />
+<h2>🎁 项目三：free-claude-code — 免费 Claude Code 方案</h2>
+<p><strong>⭐ 20.8k Stars | 📈 周增 8,276</strong></p>
+<h3>核心亮点</h3>
+<p>让开发者在 <strong>终端/VSCode/Discord</strong> 中免费使用 Claude Code，支持语音交互。</p>
+<h3>安装方式</h3>
+<pre><code class="language-bash"># 终端安装
+npm install -g free-claude-code
+
+# VSCode 扩展
+ext install alishahryar.free-claude-code
+</code></pre>
+<h3>功能特性</h3>
+<ul>
+<li>✅ 终端模式：命令行交互</li>
+<li>✅ VSCode 集成：编辑器内使用</li>
+<li>✅ Discord 机器人：团队协作</li>
+<li>✅ 语音支持：语音编码</li>
+</ul>
+<hr />
+<h2>📊 数据对比</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>Stars</th>
+<th>周增长</th>
+<th>领域</th>
+<th>学习曲线</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>skills</td>
+<td>57.2k</td>
+<td>+34,848</td>
+<td>AI 编程</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>TradingAgents</td>
+<td>65.5k</td>
+<td>+11,252</td>
+<td>金融 AI</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>free-claude-code</td>
+<td>20.8k</td>
+<td>+8,276</td>
+<td>开发工具</td>
+<td>⭐</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>🔮 趋势预测</h2>
+<ol>
+<li><strong>AI 编程技能标准化</strong>：skills 项目可能成为事实标准</li>
+<li><strong>多智能体协作</strong>：TradingAgents 展示的多代理模式将普及</li>
+<li><strong>免费工具崛起</strong>：free-claude-code 证明市场对免费方案的需求</li>
+</ol>
+<hr />
+<h2>💡 实战建议</h2>
+<h3>对于开发者</h3>
+<ul>
+<li>立即试用 <code>skills</code> 提升 AI 编程效率</li>
+<li>关注多智能体框架，提前布局</li>
+</ul>
+<h3>对于创业者</h3>
+<ul>
+<li>基于 TradingAgents 构建垂直领域交易机器人</li>
+<li>利用免费 Claude Code 降低开发成本</li>
+</ul>
+<h3>对于投资者</h3>
+<ul>
+<li>AI 编程工具赛道持续火热</li>
+<li>多智能体协作是下一个爆发点</li>
+</ul>
+<hr />
+<p><em>作者: 小夏的量化工作室</em>
+<em>数据来源: GitHub Trending</em>
+<em>免责声明: 本文仅供参考，不构成投资建议</em></p>
