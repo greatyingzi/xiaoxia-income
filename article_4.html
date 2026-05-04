@@ -5,87 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python自动化: 2025指南</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.8; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
-        header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 40px 20px; text-align: center; margin-bottom: 40px; border-radius: 10px; }
-        h1 { font-size: 2em; }
-        .back { display: inline-block; margin-bottom: 30px; color: #667eea; text-decoration: none; }
-        .content { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        h2 { color: #667eea; margin: 30px 0 15px; }
-        h3 { color: #764ba2; margin: 20px 0 10px; }
-        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
-        pre { background: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.8; color: #333; background: #f5f5f5; }
+        .wrapper { max-width: 800px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 60px 20px; text-align: center; margin-bottom: 40px; border-radius: 10px; }
+        header h1 { font-size: 2.2em; }
+        .back { display: inline-block; margin-bottom: 30px; color: #667eea; text-decoration: none; font-weight: 600; }
+        .content { background: white; padding: 50px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .content h1 { color: #667eea; font-size: 1.8em; margin: 30px 0 20px; padding-bottom: 10px; border-bottom: 2px solid #e0e0e0; }
+        .content h2 { color: #764ba2; font-size: 1.5em; margin: 35px 0 15px; }
+        .content h3 { color: #555; font-size: 1.2em; margin: 25px 0 12px; }
+        .content p { margin-bottom: 18px; text-align: justify; }
+        .content strong { color: #667eea; }
+        .content code { background: #f0f0f0; padding: 3px 8px; border-radius: 4px; font-family: monospace; }
+        .content pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 20px 0; }
+        .content pre code { background: transparent; }
+        .content ul, .content ol { margin: 15px 0 15px 30px; }
+        .content li { margin-bottom: 8px; }
+        .content blockquote { border-left: 4px solid #667eea; padding: 15px 20px; margin: 20px 0; background: #f8f9fa; border-radius: 0 8px 8px 0; }
+        .content table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .content th { background: #667eea; color: white; padding: 12px; }
+        .content td { padding: 12px; border-bottom: 1px solid #e0e0e0; }
+        .content tr:nth-child(even) { background: #f8f9fa; }
+        .meta { color: #666; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e0e0e0; }
+        footer { text-align: center; padding: 40px 20px; margin-top: 60px; color: #666; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Python自动化: 2025指南</h1>
-    </header>
-    <a href="index.html" class="back">← 返回首页</a>
-    <div class="content">
-        # Python 自动化深度指南
-
-## 引言
-
-在数字化转型的浪潮中，重复性、消耗大量人力且逻辑复杂的任务正面临前所未有的挑战。手动操作不仅效率低下，更极易引入人为错误。Python 凭借其强大的生态系统和简洁的语法，已成为现代开发者的首选工具之一。本指南旨在深入剖析 Python 自动化从底层原理到上层应用的全景图，助你在构建高效智能系统时少走弯路。
-
-## 核心：基石与思维
-
-Python 自动化的核心并非仅仅在于编写脚本，而在于**范式转移**。传统的编程方式侧重于“命令序列”，而自动化更强调“意图驱动”。理解这一转变至关重要，它要求开发者从关注“如果...就..."转向关注“为何需要执行此操作”。
-
-在底层机制上，Python 的 `os`、`subprocess` 和 `PIL/Pillow` 等模块是自动化的基石。这些库提供了与系统原生的直接交互能力，使得脚本能够无需经过解释层（如 Java 或 Python）即可调用操作系统命令或图形界面软件。同时，深入理解 `datetime` 时间处理、正则表达式匹配以及文件系统的层级结构，是构建可靠自动化流程的基础。此外，必须建立“失败即重试”和“环境隔离”的防御性思维，这是保障自动化稳定性的关键护城河。
-
-## 实战：从命令到逻辑
-
-实战演练是掌握 Python 自动化的必经之路。以下是一个经典的案例：利用 `subprocess` 模块调用本地数据库进行数据清洗，并实现自动备份策略。
-
-首先，我们构建一个任务调度器类。该类负责解析配置文件中的时间参数（如“每天凌晨 2:00"），并将其转换为 Python 可执行的 `datetime` 对象。接着，利用 `subprocess.Popen` 启动命令行工具执行实际操作——例如，以非交互式方式打开 SQLite 数据库进行备份。
-
-```python
-import subprocess, datetime, os
+    <div class="wrapper">
+        <header><h1>Python自动化: 2025指南</h1></header>
+        <a href="index.html" class="back">← 返回首页</a>
+        <div class="content">
+            <div class="meta">📝 深度指南 | 📅 2025 | 👤 小夏的量化工作室</div>
+            <h1 id="python">Python 自动化深度指南</h1>
+<h2 id="_1">引言</h2>
+<p>在数字化转型的浪潮中，重复性、消耗大量人力且逻辑复杂的任务正面临前所未有的挑战。手动操作不仅效率低下，更极易引入人为错误。Python 凭借其强大的生态系统和简洁的语法，已成为现代开发者的首选工具之一。本指南旨在深入剖析 Python 自动化从底层原理到上层应用的全景图，助你在构建高效智能系统时少走弯路。</p>
+<h2 id="_2">核心：基石与思维</h2>
+<p>Python 自动化的核心并非仅仅在于编写脚本，而在于<strong>范式转移</strong>。传统的编程方式侧重于“命令序列”，而自动化更强调“意图驱动”。理解这一转变至关重要，它要求开发者从关注“如果...就..."转向关注“为何需要执行此操作”。</p>
+<p>在底层机制上，Python 的 <code>os</code>、<code>subprocess</code> 和 <code>PIL/Pillow</code> 等模块是自动化的基石。这些库提供了与系统原生的直接交互能力，使得脚本能够无需经过解释层（如 Java 或 Python）即可调用操作系统命令或图形界面软件。同时，深入理解 <code>datetime</code> 时间处理、正则表达式匹配以及文件系统的层级结构，是构建可靠自动化流程的基础。此外，必须建立“失败即重试”和“环境隔离”的防御性思维，这是保障自动化稳定性的关键护城河。</p>
+<h2 id="_3">实战：从命令到逻辑</h2>
+<p>实战演练是掌握 Python 自动化的必经之路。以下是一个经典的案例：利用 <code>subprocess</code> 模块调用本地数据库进行数据清洗，并实现自动备份策略。</p>
+<p>首先，我们构建一个任务调度器类。该类负责解析配置文件中的时间参数（如“每天凌晨 2:00"），并将其转换为 Python 可执行的 <code>datetime</code> 对象。接着，利用 <code>subprocess.Popen</code> 启动命令行工具执行实际操作——例如，以非交互式方式打开 SQLite 数据库进行备份。</p>
+<pre class="codehilite"><code class="language-python">import subprocess, datetime, os
 
 def run_backup_task():
     # 1. 配置参数
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M")
-    target_dir = f"/data/backups/{timestamp}"
-    
+    timestamp = datetime.datetime.now().strftime(&quot;%Y-%m-%d_%H:%M&quot;)
+    target_dir = f&quot;/data/backups/{timestamp}&quot;
+
     try:
         # 2. 构建子进程并执行命令（此处仅为示例，实际需调用 shell 或具体工具）
-        cmd = ["bash", "-c", "sqlite3 /path/to/db.sql 'backup'"] 
+        cmd = [&quot;bash&quot;, &quot;-c&quot;, &quot;sqlite3 /path/to/db.sql 'backup'&quot;] 
         process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        
+
         output, error = process.communicate()
-        
+
         if output:
-            print(f"备份成功：{output.decode()}")
+            print(f&quot;备份成功：{output.decode()}&quot;)
         else:
-            raise RuntimeError("执行过程中未获得预期输出，请检查日志。")
+            raise RuntimeError(&quot;执行过程中未获得预期输出，请检查日志。&quot;)
 
     except subprocess.TimeoutExpired:
-        print("操作超时，已终止。")
+        print(&quot;操作超时，已终止。&quot;)
     except Exception as e:
-        print(f"发生错误：{e}")
+        print(f&quot;发生错误：{e}&quot;)
 
 # 启动任务
 run_backup_task()
-```
+</code></pre>
 
-此脚本展示了如何将抽象的业务需求转化为具体的系统行为，体现了自动化从“硬编码”向“逻辑解耦”演进的过程。
-
-## 数据：构建管道与生态
-
-在深入应用前，必须夯实数据处理能力。Python 的 `pandas` 库是处理结构化数据的霸主，它提供了高效的内存操作、缺失值填充及统计分析功能。对于非结构化数据（如日志文本或图片），则需结合 `scikit-learn` 进行特征提取与分类。
-
-自动化流程往往涉及多阶段数据处理：首先是数据采集与清洗（利用 `pandas` 处理 CSV/Excel），其次是规则校验（通过正则匹配确保格式正确），最后是结果导出（将清洗后的数据写入新文件或通知系统）。此外，掌握 `requests` 库用于模拟 HTTP 请求进行外部数据同步，以及 `selenium` 或 `playwright` 处理网页自动化交互，是构建全链路自动化工具包的关键拼图。
-
-## 趋势：AI 与云原生
-
-展望未来，Python 自动化正迎来智能化变革。大语言模型（LLM）的出现为脚本编写提供了强大的辅助能力。通过提示工程（Prompt Engineering），开发者可以引导 AI 生成复杂的业务逻辑、优化代码结构甚至自动修复 Bug。未来的 Python 应用将具备更强的自我进化能力，能够根据反馈动态调整行为。
-
-在云原生架构中，Python 的自动化能力将进一步与容器技术（Docker）、编排工具（Kubernetes）深度绑定。结合 AWS Lambda 或 Azure Functions 等 Serverless 模式，脚本可以瞬间触发并执行大规模计算任务，极大地降低了运维成本。此外，“无代码/低代码”平台对 Python 的依赖日益加深，使其成为构建企业级自动化中台的首选语言。
-
-## 结语
-
-掌握 Python 自动化不仅是学习一门编程语言，更是一场思维方式的革命。从理解底层的系统调用逻辑，到驾驭 AI 与云原生的前沿趋势，每一层深入都赋予我们更强的生产力。唯有保持对新技术的敏感与敬畏，结合严谨的代码规范与可靠的测试策略，你才能真正构建起稳健、高效的自动化体系，释放技术潜力。
+<p>此脚本展示了如何将抽象的业务需求转化为具体的系统行为，体现了自动化从“硬编码”向“逻辑解耦”演进的过程。</p>
+<h2 id="_4">数据：构建管道与生态</h2>
+<p>在深入应用前，必须夯实数据处理能力。Python 的 <code>pandas</code> 库是处理结构化数据的霸主，它提供了高效的内存操作、缺失值填充及统计分析功能。对于非结构化数据（如日志文本或图片），则需结合 <code>scikit-learn</code> 进行特征提取与分类。</p>
+<p>自动化流程往往涉及多阶段数据处理：首先是数据采集与清洗（利用 <code>pandas</code> 处理 CSV/Excel），其次是规则校验（通过正则匹配确保格式正确），最后是结果导出（将清洗后的数据写入新文件或通知系统）。此外，掌握 <code>requests</code> 库用于模拟 HTTP 请求进行外部数据同步，以及 <code>selenium</code> 或 <code>playwright</code> 处理网页自动化交互，是构建全链路自动化工具包的关键拼图。</p>
+<h2 id="ai">趋势：AI 与云原生</h2>
+<p>展望未来，Python 自动化正迎来智能化变革。大语言模型（LLM）的出现为脚本编写提供了强大的辅助能力。通过提示工程（Prompt Engineering），开发者可以引导 AI 生成复杂的业务逻辑、优化代码结构甚至自动修复 Bug。未来的 Python 应用将具备更强的自我进化能力，能够根据反馈动态调整行为。</p>
+<p>在云原生架构中，Python 的自动化能力将进一步与容器技术（Docker）、编排工具（Kubernetes）深度绑定。结合 AWS Lambda 或 Azure Functions 等 Serverless 模式，脚本可以瞬间触发并执行大规模计算任务，极大地降低了运维成本。此外，“无代码/低代码”平台对 Python 的依赖日益加深，使其成为构建企业级自动化中台的首选语言。</p>
+<h2 id="_5">结语</h2>
+<p>掌握 Python 自动化不仅是学习一门编程语言，更是一场思维方式的革命。从理解底层的系统调用逻辑，到驾驭 AI 与云原生的前沿趋势，每一层深入都赋予我们更强的生产力。唯有保持对新技术的敏感与敬畏，结合严谨的代码规范与可靠的测试策略，你才能真正构建起稳健、高效的自动化体系，释放技术潜力。</p>
+        </div>
     </div>
+    <footer><p>© 2025 小夏的量化工作室</p></footer>
 </body>
 </html>
